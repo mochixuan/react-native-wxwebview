@@ -108,7 +108,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
   protected static final String HTML_ENCODING = "UTF-8";
   protected static final String HTML_MIME_TYPE = "text/html";
-  protected static final String BRIDGE_NAME = "__REACT_WEB_VIEW_BRIDGE";
+  protected static final String BRIDGE_NAME = "WebViewBridge";
 
   public final static String HEADER_CONTENT_TYPE = "content-type";
   private static final String MIME_TEXT_HTML = "text/html";
@@ -355,6 +355,11 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
       @JavascriptInterface
       public void postMessage(String message) {
+        mContext.onMessage(message);
+      }
+
+      @JavascriptInterface
+      public void send(String message) {
         mContext.onMessage(message);
       }
     }
