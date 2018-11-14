@@ -172,7 +172,7 @@ class WXWebView extends React.Component {
     /**
      * Report the progress
      */
-    onLoadingProgress: PropTypes.func,
+    onLoadProgress: PropTypes.func,
     /**
      * A function that is invoked when the webview calls `window.postMessage`.
      * Setting this property will inject a `postMessage` global into your
@@ -507,8 +507,8 @@ class WXWebView extends React.Component {
   };
 
   _onProgress = (event: Event) => {
-    const onLoadingProgress = this.props.onLoadingProgress;
-    onLoadingProgress && onLoadingProgress(event);
+    const onLoadProgress = this.props.onLoadProgress;
+      onLoadProgress && onLoadProgress(event);
   };
 
   _onMessage = (event: Event) => {
