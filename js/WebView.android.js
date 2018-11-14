@@ -282,10 +282,8 @@ class WebView extends React.Component<WebViewSharedProps, State> {
   };
 
   onMessage = (event: WebViewMessageEvent) => {
-    if (event && event.nativeEvent && event.nativeEvent.data) {
-        const { onMessage } = this.props;
-        onMessage && onMessage(event.nativeEvent.data);
-    }
+      const { onMessage } = this.props;
+      onMessage && onMessage(event);
   };
 
   onLoadingProgress = (event: WebViewProgressEvent) => {
