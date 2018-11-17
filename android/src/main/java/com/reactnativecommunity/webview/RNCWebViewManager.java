@@ -158,16 +158,25 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
       try {
         RNCWebView reactWebView = (RNCWebView) webView;
 
-        if (reactWebView.injectedOnStartLoadingJS == null) {
-          return null;
-        }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
           Uri url = request.getUrl();
           String urlStr = url.toString();
 
+          if (reactWebView.injectedOnStartLoadingJS == null) {
+            return null;
+          }
+
+          if (!request.isForMainFrame()) {
+            return null;
+          }
+
           if (urlStringLooksInvalid(urlStr)) {
             return null;
+          }
+
+          if(urlStr.contains("mixpanel") || urlStr.contains("cdn.segment.com")){
+            Log.d("URL", "LOCK MIXPANEL");
+            return new WebResourceResponse("text/html", UTF_8.name(), null);
           }
 
           Request req = new Request.Builder()
