@@ -297,6 +297,7 @@ const RNCWebView = requireNativeComponent('RNCWebView');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    overflow: 'hidden'
   },
   hidden: {
     height: 0,

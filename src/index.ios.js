@@ -539,8 +539,7 @@ const CRAWKWebView = requireNativeComponent('CRAWKWebView', WXWebView, {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    overflow: 'hidden'
+    flex: 1
   },
   errorContainer: {
     flex: 1,

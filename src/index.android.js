@@ -203,8 +203,7 @@ const WXWebView = createReactClass({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    overflow: 'hidden'
+    flex: 1
   },
   hidden: {
     height: 0,
